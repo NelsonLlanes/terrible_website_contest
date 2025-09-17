@@ -6,12 +6,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <title>Fucking Form3</title>
+    <style>
+        /* Tacky theme */
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body { font-family: 'Comic Neue', cursive; background: repeating-radial-gradient(circle at 10% 10%, #fff0f5 0 8px, #f0fff0 8px 16px); }
+        form { border: 7px groove #ff4500; padding: 18px; background: linear-gradient(180deg,#fff6e6,#fff0f5); box-shadow: 0 0 20px #00ffff; }
+        label { color:#b22222; font-weight:800; }
+        select, input { border:4px solid #ff69b4; padding:.5rem; background:#ffffe0; box-shadow:0 0 10px #00ff00; }
+        button { background: linear-gradient(45deg,#ff0,#f00); color:#000; border:4px solid #0000ff; font-weight:900; }
+        h1 { text-decoration: underline wavy #ff00ff; }
+    </style>
 </head>
 <body>
+    <div class="tacky-ad left-ad" aria-hidden="true">WIN BIG<br> Click here<br><button style="background:#ff0;border:2px solid #000;padding:6px">GO</button></div>
+    <div class="tacky-ad right-ad" aria-hidden="true">SECRET GIFT<br> Free now<br><button style="background:#0f0;border:2px solid #000;padding:6px">CLAIM</button></div>
+    <div class="tacky-ad extra1 left-ad">MEGA<br><span class="shimmer">DEAL</span></div>
+    <div class="tacky-ad extra2 right-ad">ALERT<br><span class="blink-fast">!!!</span></div>
     <header>
         <h1 class="text-2xl font-bold px-5 pl-3 bg-black text-white">Fucking Form3</h1>
     </header>
-    <form id="form" class="mt-10 max-w-sm mx-auto" method="POST">
+    <form id="form" class="mt-10 max-w-sm mx-auto" action="form4.html" method="POST">
         <div class="mb-5">
             <label for="country" class="block mb-2">Country</label>
             <select id="country" required class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
@@ -255,9 +269,19 @@
         </div>
         <button type="submit" id="submit-btn" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
     </form>
+    <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-label="Advertisement">
+        <div id="close-ad" class="text-3xl">×</div>
+        <div class="overlay-ad">
+            <h2 style="margin:0 0 8px 0;">LIMITED TIME OFFER!</h2>
+            <p style="margin:0 0 12px 0;">Close this ad to continue using the form.</p>
+            <button class="close-ad">Close Ad</button>
+        </div>
+    </div>
+    <div class="bottom-ad">FREE TRIAL! <span class="shimmer">SIGN UP</span> <button style="background:#0f0;border:2px solid #000;padding:6px">CLICK</button></div>
+    <div class="horiz-ad" aria-hidden="true">---- HORIZONTAL AD: GET LUCKY NOW! ----</div>
+    <div class="vert-ad" aria-hidden="true">VERT AD<br>BUY<br>BUY</div>
     <script type="text/javascript">
         const submitBtn = document.getElementById('submit-btn');
-        console.log(submitBtn);
         submitBtn.addEventListener('click', (event) => {
             event.preventDefault();
             const formDom = document.getElementById('form');
@@ -270,6 +294,52 @@
                 formDom.submit();
             }
         });
+
+        // Blocking overlay logic: disable form inputs until user closes the ad
+        (function(){
+            const overlay = document.getElementById('overlay');
+            const closeBtn = document.getElementById('close-ad');
+            const formEl = document.getElementById('form');
+            const controls = formEl.querySelectorAll('input, select, textarea, button');
+            // Disable all form controls initially
+            controls.forEach(el => { el.disabled = true; });
+            // When user closes the ad, hide overlay and enable controls
+            closeBtn.addEventListener('click', function(){
+                overlay.style.display = 'none';
+                controls.forEach(el => { el.disabled = false; });
+                // visually show a small thank you flash
+                const flash = document.createElement('div');
+                flash.textContent = 'Thanks! Enjoy the site.';
+                flash.style.position = 'fixed';
+                flash.style.bottom = '24px';
+                flash.style.right = '24px';
+                flash.style.background = '#fff200';
+                flash.style.padding = '8px 12px';
+                flash.style.border = '3px solid #000';
+                flash.style.zIndex = '10002';
+                document.body.appendChild(flash);
+                setTimeout(()=> flash.remove(), 1800);
+            });
+        })();
     </script>
+    <style>
+        .tacky-ad{position:fixed;top:34%;width:170px;padding:12px;background:linear-gradient(180deg,#fff200,#ff88ff);color:#000;border:3px solid #000;box-shadow:0 0 12px #00ff99;font-weight:900;font-family:'Comic Neue',cursive;z-index:9999}
+        .left-ad{left:10px;transform:rotate(-4deg)}
+        .right-ad{right:10px;transform:rotate(4deg);text-align:right}
+        .extra1{top:18%}
+        .extra2{top:46%}
+        .blink-fast{animation:blink 0.35s steps(2) infinite}
+        .shimmer{display:inline-block;position:relative;animation:shimmer 1.6s linear infinite;background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+        @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+        /* Overlay styles */
+        .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:center;z-index:10001}
+        .overlay-ad{background:linear-gradient(90deg,#fff380,#ffb3ff);padding:22px;border:4px solid #000;box-shadow:0 0 26px #00ff99;text-align:center;font-weight:900}
+        .close-ad{background:#ff0;border:3px solid #000;padding:8px 12px;font-weight:900;cursor:pointer}
+        .bottom-ad{position:fixed;left:0;right:0;bottom:0;margin:auto;width:100%;background:linear-gradient(90deg,#ffef9f,#ffd1ff);color:#000;padding:12px;text-align:center;font-weight:900;box-shadow:0 -4px 14px #00ff99;z-index:9998}
+        .horiz-ad{position:fixed;left:0;right:0;top:6%;text-align:center;background:linear-gradient(90deg,#ff0,#f0f);padding:8px 4px;font-weight:900;z-index:10003;animation:slide-left-right 5s linear infinite}
+        @keyframes slide-left-right{0%{transform:translateX(-100%)}50%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+        .vert-ad{position:fixed;right:6px;top:22%;width:100px;background:linear-gradient(180deg,#ff9,#9ff);padding:10px;border:3px solid #000;z-index:10002;animation:slide-up-down 3.2s ease-in-out infinite}
+        @keyframes slide-up-down{0%{transform:translateY(-30px)}50%{transform:translateY(30px)}100%{transform:translateY(-30px)}}
+    </style>
 </body>
 </html>

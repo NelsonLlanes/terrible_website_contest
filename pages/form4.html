@@ -25,7 +25,7 @@
     <header>
         <h1 class="text-2xl font-bold px-5 pl-3 bg-black text-white">Fucking Form4</h1>
     </header>
-    <form id="form" class="mt-10 max-w-sm mx-auto" action="form5.html" method="POST">
+    <form id="form" class="mt-10 max-w-sm mx-auto" action="form5.html" method="get">
         <div class="mb-5">
             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message (min 300 characters)</label>
             <textarea id="message" name="message" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Write at least 300 characters..." required></textarea>
@@ -40,6 +40,10 @@
         </div>
         <button type="submit" id="submit-btn" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
     </form>
+
+   
+
+
     <script>
         (function(){
             const form = document.getElementById('form');
@@ -61,12 +65,15 @@
             message.addEventListener('input', updateInfo);
 
             form.addEventListener('submit', function(e){
+                
                 const len = message.value.length;
                 if(len < min){
                     e.preventDefault();
                     error.style.display = 'block';
                     updateInfo();
                     message.focus();
+
+
                     return false;
                 } else {
                     error.style.display = 'none';
@@ -74,11 +81,18 @@
                 }
             });
 
+
+
             // initialize
             updateInfo();
+
+
         })();
-    </script>
+   
+        
+    </script> 
     </form>
+
     <div class="bottom-ad">AMAZING! <span class="marquee">CLICK FAST</span> <button style="background:#ff0;border:2px solid #000;padding:6px">JOIN</button></div>
     <div class="horiz-ad" aria-hidden="true">---- HORIZONTAL AD: WIN A PRIZE TODAY! ----</div>
     <div class="vert-ad" aria-hidden="true">VERTICAL PROMO<br>TRY<br>NOW</div>

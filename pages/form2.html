@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,58 +10,267 @@
     <style>
         /* Tacky theme */
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
-    body { font-family: 'Comic Neue', cursive; background: repeating-linear-gradient(135deg,#e0ffff 0 12px,#ffe4e1 12px 24px); cursor: url('../assets/cursor.png') 16 16, auto; }
-        form { border: 5px double #00ffff; padding: 20px; background: linear-gradient(180deg,#fff,#ffe6f2); box-shadow: 0 0 25px #ff00ff; }
-        label { color: #800080; font-weight: 800; }
-        input, textarea, select { border: 3px solid #00bfff; background: #fffacd; padding: .5rem; box-shadow: 0 0 6px #00ff00; }
-        button { background: linear-gradient(90deg,#ff9a9e,#fad0c4); color:#2b2b2b; border:2px solid #ff1493; font-weight:800; }
-        h1 { transform: skewX(-10deg); text-shadow: 3px 3px 0 #00ff00; }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: repeating-linear-gradient(135deg, #e0ffff 0 12px, #ffe4e1 12px 24px);
+            cursor: url('../assets/cursor.png') 16 16, auto;
+        }
+
+        form {
+            border: 5px double #00ffff;
+            padding: 20px;
+            background: linear-gradient(180deg, #fff, #ffe6f2);
+            box-shadow: 0 0 25px #ff00ff;
+        }
+
+        label {
+            color: #800080;
+            font-weight: 800;
+        }
+
+        input,
+        textarea,
+        select {
+            border: 3px solid #00bfff;
+            background: #fffacd;
+            padding: .5rem;
+            box-shadow: 0 0 6px #00ff00;
+        }
+
+        button {
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+            color: #2b2b2b;
+            border: 2px solid #ff1493;
+            font-weight: 800;
+        }
+
+        h1 {
+            transform: skewX(-10deg);
+            text-shadow: 3px 3px 0 #00ff00;
+        }
     </style>
 </head>
+
 <body>
-    <div class="tacky-ad left-ad" aria-hidden="true">HOT DEAL<br> Instant Fame<br><button style="background:#ff0;border:2px solid #000;padding:6px">BUY</button></div>
-    <div class="tacky-ad right-ad" aria-hidden="true">SECRET SAUCE<br> Guaranteed<br><button style="background:#0ff;border:2px solid #000;padding:6px">GET</button></div>
+    <div class="tacky-ad left-ad" aria-hidden="true">HOT DEAL<br> Instant Fame<br><button
+            style="background:#ff0;border:2px solid #000;padding:6px">BUY</button></div>
+    <div class="tacky-ad right-ad" aria-hidden="true">SECRET SAUCE<br> Guaranteed<br><button
+            style="background:#0ff;border:2px solid #000;padding:6px">GET</button></div>
     <div class="tacky-ad extra1 left-ad">LIMITED<br><span class="marquee">CLICK NOW</span></div>
     <div class="tacky-ad extra2 right-ad">WOW<br><span class="spin">★</span><span class="spin slow">★</span></div>
     <header>
         <h1 class="text-2xl font-bold px-5 pl-3 bg-black text-white">Fucking Form2</h1>
     </header>
-    <form class="mt-10 max-w-sm mx-auto" action="form3.html" method="POST">
+    <form id="myform" class="mt-10 max-w-sm mx-auto" action="form3.html" method="get">
         <div class="mb-5">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
-            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+            <input type="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@flowbite.com" required />
         </div>
         <div class="mb-5">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Password</label>
-            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="require input password" readonly />
+            <label for="confirm-email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                Email</label>
+            <input type="email" id="confirm-email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@flowbite.com" required />
+        </div>
+        <div class="mb-5">
+            <label for="confirm-email2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                Email</label>
+            <input type="email" id="confirm-email2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@flowbite.com" required />
+        </div>
+        <div class="mb-5">
+            <label for="confirm-email3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                Email</label>
+            <input type="email" id="confirm-email3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@flowbite.com" required />
         </div>
         <div class="flex items-start mb-5">
             <div class="flex items-center h-5">
-            <input id="remember" type="checkbox" value="" required class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                <input id="remember" type="checkbox" value="" required
+                    class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                    required />
             </div>
             <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
         </div>
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        <button id="button" type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+
+
     </form>
-    <div class="bottom-ad">LIMITED TIME! <span class="marquee">DON'T MISS</span> <button style="background:#0ff;border:2px solid #000;padding:6px">GET</button></div>
+
+
+    <div class="bottom-ad">LIMITED TIME! <span class="marquee">DON'T MISS</span> <button
+            style="background:#0ff;border:2px solid #000;padding:6px">GET</button></div>
     <div class="horiz-ad" aria-hidden="true">---- HORIZONTAL AD: CLICK FOR INSTANT LUCK! ----</div>
     <div class="vert-ad" aria-hidden="true">VERTICAL AD<br>NEW<br>NOW</div>
     <style>
-        .tacky-ad{position:fixed;top:28%;width:160px;padding:12px;background:linear-gradient(90deg,#ffb6c1,#ffd700);color:#000;border:4px solid #000;box-shadow:0 0 12px #ff00ff;font-weight:900;font-family:'Comic Neue',cursive;z-index:9999}
-        .left-ad{left:8px;transform:rotate(-4deg)}
-        .right-ad{right:8px;transform:rotate(4deg);text-align:right}
-        .extra1{top:18%}
-        .extra2{top:40%}
-        .marquee{display:inline-block;animation:marq 3s linear infinite}
-        @keyframes marq{0%{transform:translateX(0)}50%{transform:translateX(40%)}100%{transform:translateX(0)}}
-        .spin{display:inline-block;animation:spin 1s linear infinite}
-        .spin.slow{animation-duration:2s}
-        @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-        .bottom-ad{position:fixed;left:0;right:0;bottom:0;margin:auto;width:100%;background:linear-gradient(90deg,#ff7f50,#ffb6c1);color:#000;padding:12px;text-align:center;font-weight:900;box-shadow:0 -4px 10px #ff1493;z-index:9998}
-        .horiz-ad{position:fixed;left:0;right:0;top:6%;text-align:center;background:linear-gradient(90deg,#fff700,#ff6ec7);padding:8px 4px;font-weight:900;z-index:10003;animation:slide-left-right 7s linear infinite}
-        @keyframes slide-left-right{0%{transform:translateX(-100%)}50%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-        .vert-ad{position:fixed;left:0;top:18%;width:110px;background:linear-gradient(180deg,#9ff,#f9f);padding:10px;border:3px solid #000;z-index:10002;animation:slide-up-down 4s ease-in-out infinite}
-        @keyframes slide-up-down{0%{transform:translateY(-20px)}50%{transform:translateY(20px)}100%{transform:translateY(-20px)}}
+        .tacky-ad {
+            position: fixed;
+            top: 28%;
+            width: 160px;
+            padding: 12px;
+            background: linear-gradient(90deg, #ffb6c1, #ffd700);
+            color: #000;
+            border: 4px solid #000;
+            box-shadow: 0 0 12px #ff00ff;
+            font-weight: 900;
+            font-family: 'Comic Neue', cursive;
+            z-index: 9999
+        }
+
+        .left-ad {
+            left: 8px;
+            transform: rotate(-4deg)
+        }
+
+        .right-ad {
+            right: 8px;
+            transform: rotate(4deg);
+            text-align: right
+        }
+
+        .extra1 {
+            top: 18%
+        }
+
+        .extra2 {
+            top: 40%
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marq 3s linear infinite
+        }
+
+        @keyframes marq {
+            0% {
+                transform: translateX(0)
+            }
+
+            50% {
+                transform: translateX(40%)
+            }
+
+            100% {
+                transform: translateX(0)
+            }
+        }
+
+        .spin {
+            display: inline-block;
+            animation: spin 1s linear infinite
+        }
+
+        .spin.slow {
+            animation-duration: 2s
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .bottom-ad {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            background: linear-gradient(90deg, #ff7f50, #ffb6c1);
+            color: #000;
+            padding: 12px;
+            text-align: center;
+            font-weight: 900;
+            box-shadow: 0 -4px 10px #ff1493;
+            z-index: 9998
+        }
+
+        .horiz-ad {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 6%;
+            text-align: center;
+            background: linear-gradient(90deg, #fff700, #ff6ec7);
+            padding: 8px 4px;
+            font-weight: 900;
+            z-index: 10003;
+            animation: slide-left-right 7s linear infinite
+        }
+
+        @keyframes slide-left-right {
+            0% {
+                transform: translateX(-100%)
+            }
+
+            50% {
+                transform: translateX(100%)
+            }
+
+            100% {
+                transform: translateX(-100%)
+            }
+        }
+
+        .vert-ad {
+            position: fixed;
+            left: 0;
+            top: 18%;
+            width: 110px;
+            background: linear-gradient(180deg, #9ff, #f9f);
+            padding: 10px;
+            border: 3px solid #000;
+            z-index: 10002;
+            animation: slide-up-down 4s ease-in-out infinite
+        }
+
+        @keyframes slide-up-down {
+            0% {
+                transform: translateY(-20px)
+            }
+
+            50% {
+                transform: translateY(20px)
+            }
+
+            100% {
+                transform: translateY(-20px)
+            }
+        }
     </style>
+
+    <script>
+        const form = document.getElementById("myform");
+        const email = document.getElementById("email");
+        const confirmemail = document.getElementById("confirm-email");
+        const confirmemail2 = document.getElementById("confirm-email2");
+        const confirmemail3 = document.getElementById("confirm-email3");
+        const button = document.getElementById("button");
+
+        button.addEventListener("click", (e) => {
+            if (email.value !== confirmemail.value || confirmemail.value !== confirmemail2.value || confirmemail2.value !== confirmemail3.value) {
+                e.preventDefault();
+                alert("❌ Emails do not match!");
+            };
+        });
+
+        confirmemail3.addEventListener("paste", (e) =>{
+            e.preventDefault()
+            alert("❌ please type the email. it´s for safety dude.")
+        });
+    </script>
 </body>
+
 </html>
